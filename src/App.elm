@@ -1,33 +1,42 @@
 port module App exposing (app)
 
 import Browser
+import Browser.Navigation
 import Url
-
 import View exposing (..)
 import Model exposing (..)
 import Msg exposing (..)
 
-type alias Flags =
-  { seed : Int
-  }
 
-init : Flags -> String -> ( Model, Cmd Msg )
-init flags location =
-  (defaultModel, Cmd.none)
+type alias Flags =
+    { seed : Int
+    }
+
+
+init : Flags -> Url.Url -> Browser.Navigation.Key -> ( Model, Cmd Msg )
+init flags location key =
+    ( defaultModel, Cmd.none )
+
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
-  (defaultModel, Cmd.none)
+    ( defaultModel, Cmd.none )
+
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
-  Sub.batch [ ]
+    Sub.batch []
 
-onUrlChange : Url.Url -> msg
-onUrlChange url = Noop
 
-onUrlRequest : Browser.UrlRequest -> msg
-onUrlRequest request = Noop
+urlChange : Url.Url -> Msg
+urlChange url =
+    Noop
+
+
+urlRequest : Browser.UrlRequest -> Msg
+urlRequest request =
+    Msg.Noop
+
 
 app =
     Browser.application

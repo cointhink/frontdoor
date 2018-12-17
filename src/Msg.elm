@@ -1,4 +1,5 @@
-module Msg exposing (Msg)
+module Msg exposing (..)
+
 
 type Msg
     = Noop

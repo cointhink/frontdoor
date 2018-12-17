@@ -1,8 +1,10 @@
 module Model exposing (..)
 
+
 type alias Model =
-  { name : String
-  }
+    { name : String
+    }
 
-defaultModel = Model "name"
 
+defaultModel =
+    Model "name"
