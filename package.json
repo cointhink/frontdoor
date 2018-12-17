@@ -1,0 +1,7 @@
+{
+  "name": "cointhink-web-elm",
+  "version": "0.1.0",
+  "dependencies": {
+    "elm": "^0.19.0-bugfix2"
+  }
+}
