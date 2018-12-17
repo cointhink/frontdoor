@@ -15,11 +15,11 @@ jsvars: js/*js #WIP
 	sed -e 's'$$line ./public/js/util.js > util.js.tmp && mv util.js.tmp ./public/js/util.js; \
 	done
 
-elmfiles: src/*elm
-	for elmFile in $^ ; do \
-	  elmWord=`basename $$elmFile .elm`; \
-	  ./node_modules/.bin/elm make $$elmFile --output=public/js/elm-$$elmWord.js; \
-	done
+elmfiles: public/js src/*elm
+	./node_modules/.bin/elm make src/App.elm --output=public/js/app.js 
+
+public/js:
+	mkdir public/js
 
 watch:
 	while true; do inotifywait -r src -e MODIFY; make build; done
